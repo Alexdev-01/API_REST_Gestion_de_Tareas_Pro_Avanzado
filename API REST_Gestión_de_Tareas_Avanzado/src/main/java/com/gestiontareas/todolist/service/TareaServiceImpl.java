@@ -28,7 +28,7 @@ public class TareaServiceImpl implements TareaService {
 	public TareaResponseDTO crearTarea(TareaResponseDTO dto) {
 		
         Usuario usuario = usuarioRepository.findById(dto.getUsuarioId())
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
 
 		Tarea tarea = new Tarea();
 		tarea.setTitulo(dto.getTitulo());	// Establece el título de la tarea
@@ -51,7 +51,7 @@ public class TareaServiceImpl implements TareaService {
 	@Override
 	public TareaResponseDTO actualizarTarea(Long id, TareaRequestDTO  dto) {
 		Tarea tarea = tareaRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Tarea no encontrada con id: " + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Tarea no encontrada con id: " + id));
 		tarea.setTitulo(dto.getTitulo());
 		tarea.setDescripcion(dto.getDescripcion());
 		
@@ -62,7 +62,7 @@ public class TareaServiceImpl implements TareaService {
 	@Override
 	public void elimarTarea(Long id) {
 		Tarea tarea = tareaRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Tarea no encontrada con id: " + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Tarea no encontrada con id: " + id));
 		tareaRepository.delete(tarea);		
 	}
 	
@@ -71,7 +71,7 @@ public class TareaServiceImpl implements TareaService {
 	@Override
 	public TareaResponseDTO cambiarEstado(Long id, EstadoTarea nuevoEstado) {
 		Tarea tarea = tareaRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Tarea no encontrada con id: " + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Tarea no encontrada con id: " + id));
 		tarea.setEstado(nuevoEstado);
 		
 		return mapToDTO(tareaRepository.save(tarea));
