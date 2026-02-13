@@ -2,6 +2,8 @@ package com.gestiontareas.todolist.controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -68,5 +70,11 @@ public class TareaController {
 		return ResponseEntity.ok(tareaService.cambiarEstado(id, estado));
 	}
 	
+	@GetMapping("/usuario/{usuarioId}")  // Define una ruta para listar tareas por usuario con paginación
+	// Este método captura el ID del usuario de la ruta y los parámetros de paginación, llama al servicio para obtener las tareas paginadas y devuelve una respuesta con el estado HTTP 200 (OK) y el contenido de la página de tareas
+	public ResponseEntity<Page<TareaResponseDTO>> listar(@PathVariable Long usuarioId, Pageable pageable) {	// @PathVariable indica que el valor de la variable de ruta se mapea al parámetro usuarioId; Pageable es un objeto que contiene información sobre la paginación y ordenamiento de los resultados
+		
+		return ResponseEntity.ok(tareaService.listarTareasPorUsuario(usuarioId, pageable));
+	} 
 
 }
