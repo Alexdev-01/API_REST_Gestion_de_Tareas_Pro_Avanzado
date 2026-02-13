@@ -1,6 +1,9 @@
 package com.gestiontareas.todolist.service;
 
+import java.awt.print.Pageable;
 import java.util.List;
+
+import org.springframework.data.domain.Page;
 
 import com.gestiontareas.todolist.dto.request.TareaRequestDTO;
 import com.gestiontareas.todolist.dto.response.TareaResponseDTO;
@@ -12,7 +15,7 @@ public interface TareaService {
 
 	TareaResponseDTO crearTarea(TareaResponseDTO dto);
 	
-	List<TareaResponseDTO> listarTareasPorUsuario(Long usuarioId);
+	Page<TareaResponseDTO> listarTareasPorUsuario(Long usuarioId, Pageable pageable);
 	
 	TareaResponseDTO actualizarTarea(Long id, TareaRequestDTO dto);
 	
