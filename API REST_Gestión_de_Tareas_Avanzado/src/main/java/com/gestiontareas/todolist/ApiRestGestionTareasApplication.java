@@ -4,8 +4,6 @@ public class ApiRestGestionTareasApplication {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//prueba
-		system.out.println("paso por aqui");
 	}
 
 }
