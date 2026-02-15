@@ -45,12 +45,6 @@ public class TareaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(tareaService.crearTarea(dto));
 	}
 	
-	// Método para listar todas las tareas de un usuario específico
-	@GetMapping("/usuario/{usuarioID}")
-	public ResponseEntity<List<TareaResponseDTO>> listaPorUsuario(@PathVariable Long usuarioID) {	// @PathVariable indica que el valor de la variable de ruta se mapea al parámetro usuarioID
-		return  ResponseEntity.ok(tareaService.listarTareasPorUsuario(usuarioID));
-	}
-	
 	// Método para actualizar una tarea existente
 	@PutMapping("/{id}")
 	public ResponseEntity<TareaResponseDTO> actualizarTarea(@PathVariable Long id, @Valid @RequestBody TareaRequestDTO dto) { 	// @PathVariable indica que el valor de la variable de ruta se mapea al parámetro id; @Valid indica que se deben validar las restricciones del DTO; @RequestBody indica que el cuerpo de la solicitud se mapea al objeto dto
