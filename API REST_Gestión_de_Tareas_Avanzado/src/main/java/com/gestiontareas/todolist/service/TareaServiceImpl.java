@@ -7,11 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.gestiontareas.todolist.dto.request.TareaRequestDTO;
 import com.gestiontareas.todolist.dto.response.TareaResponseDTO;
+import com.gestiontareas.todolist.exception.ResourceNotFoundException;
 import com.gestiontareas.todolist.model.EstadoTarea;
 import com.gestiontareas.todolist.model.Tarea;
 import com.gestiontareas.todolist.model.Usuario;
 import com.gestiontareas.todolist.repository.TareaRepository;
 import com.gestiontareas.todolist.repository.UsuarioRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import lombok.RequiredArgsConstructor;
 
@@ -42,8 +45,11 @@ public class TareaServiceImpl implements TareaService {
 	
 	// Mapea una entidad Tarea a un DTO de respuesta
 	@Override
-	public List<TareaResponseDTO> listarTareasPorUsuario (Long usuarioId) {
-		return tareaRepository.findByUsuarioId(usuarioId).stream().map(this::mapToDTO).toList();
+	public List<TareaResponseDTO> listarTareasPorUsuario (Long usuarioId, Pageable pageable) {
+		
+		Page<Tarea> tareasPage = tareaRepository.findByUsuarioId(usuarioId, pageable);
+		
+		return tareasPage.map(this::mapToDTO);
 	}
 	
 	
@@ -87,6 +93,12 @@ public class TareaServiceImpl implements TareaService {
 		dto.setFechaCreacion(tarea.getFechaCreacion());
 		dto.setUsuarioId(tarea.getUsuario().getId());
 		return dto;
+	}
+
+	@Override
+	public Page<TareaResponseDTO> listarTareasPorUsuario(Long usuarioId, java.awt.print.Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
