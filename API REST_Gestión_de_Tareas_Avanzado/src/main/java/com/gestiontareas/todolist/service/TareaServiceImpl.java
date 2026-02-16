@@ -45,7 +45,7 @@ public class TareaServiceImpl implements TareaService {
 	
 	// Mapea una entidad Tarea a un DTO de respuesta
 	@Override
-	public List<TareaResponseDTO> listarTareasPorUsuario (Long usuarioId, Pageable pageable) {
+	public Page<TareaResponseDTO> listarTareasPorUsuario (Long usuarioId, Pageable pageable) {
 		
 		Page<Tarea> tareasPage = tareaRepository.findByUsuarioId(usuarioId, pageable);
 		
@@ -93,12 +93,6 @@ public class TareaServiceImpl implements TareaService {
 		dto.setFechaCreacion(tarea.getFechaCreacion());
 		dto.setUsuarioId(tarea.getUsuario().getId());
 		return dto;
-	}
-
-	@Override
-	public Page<TareaResponseDTO> listarTareasPorUsuario(Long usuarioId, java.awt.print.Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }
