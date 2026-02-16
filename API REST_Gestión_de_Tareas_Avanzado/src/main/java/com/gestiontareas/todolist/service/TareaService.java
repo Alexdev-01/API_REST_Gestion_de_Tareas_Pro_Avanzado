@@ -1,9 +1,9 @@
 package com.gestiontareas.todolist.service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.gestiontareas.todolist.dto.request.TareaRequestDTO;
 import com.gestiontareas.todolist.dto.response.TareaResponseDTO;
