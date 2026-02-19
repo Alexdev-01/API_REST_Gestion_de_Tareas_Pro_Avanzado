@@ -55,4 +55,12 @@ public class GlobalExceptionHandler {
 		
 		return ResponseEntity.badRequest().body(errors);
 	}
+	
+	@ExceptionHandler(BadRequestException.class)	// Indica que este método maneja excepciones del tipo BadRequestException, que se lanzan cuando hay un error de solicitud por parte del cliente
+	// Este método captura las excepciones de tipo BadRequestException, crea una respuesta de error con detalles y devuelve una respuesta con el estado HTTP 400 (Bad Request)
+	public ResponseEntity<ErrorResponse> handleBadRequest(BadRequestException ex, HttpServletRequest request) {
+		ErrorResponse error = new ErrorResponse(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.name(), ex.getMessage(), request.getRequestURI());
+		
+		return ResponseEntity.badRequest().body(error);
+	}
 }
