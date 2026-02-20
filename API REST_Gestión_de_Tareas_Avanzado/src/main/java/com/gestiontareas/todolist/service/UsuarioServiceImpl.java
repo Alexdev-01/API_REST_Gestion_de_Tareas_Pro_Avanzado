@@ -30,7 +30,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado con id: " + id));
 
-		return UsuarioResponseDTO(usuario.getId(), usuario.getNombre(), usuario.getEmail());
+		return new UsuarioResponseDTO(usuario.getId(), usuario.getNombre(), usuario.getEmail());
 	}
 	
 }
