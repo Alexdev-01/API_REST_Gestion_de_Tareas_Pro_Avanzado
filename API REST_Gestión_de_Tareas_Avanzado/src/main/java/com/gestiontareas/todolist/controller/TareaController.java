@@ -69,6 +69,12 @@ public class TareaController {
 	public ResponseEntity<Page<TareaResponseDTO>> listar(@PathVariable Long usuarioId, Pageable pageable) {	// @PathVariable indica que el valor de la variable de ruta se mapea al parámetro usuarioId; Pageable es un objeto que contiene información sobre la paginación y ordenamiento de los resultados
 		
 		return ResponseEntity.ok(tareaService.listarTareasPorUsuario(usuarioId, pageable));
-	} 
+	}
+		
+	@GetMapping	// Define una ruta para listar todas las tareas con paginación
+	// Este método captura los parámetros de paginación, llama al servicio para obtener todas las tareas paginadas y devuelve una respuesta con el estado HTTP 200 (OK) y el contenido de la página de tareas
+	public ResponseEntity<Page<TareaResponseDTO>> listarTodas(Pageable pageable) {
+		return ResponseEntity.ok(tareaService.listarTodas(pageable));
+	}
 
 }
