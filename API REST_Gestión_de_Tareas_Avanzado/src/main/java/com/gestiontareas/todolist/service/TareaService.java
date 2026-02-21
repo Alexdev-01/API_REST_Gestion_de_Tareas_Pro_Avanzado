@@ -23,5 +23,5 @@ public interface TareaService {
 	
 	TareaResponseDTO cambiarEstado(Long id, EstadoTarea nuevoEstado);
 
-	
+	Page<TareaResponseDTO> listarTodas(Pageable pageable);
 }
