@@ -94,5 +94,11 @@ public class TareaServiceImpl implements TareaService {
 		dto.setUsuarioId(tarea.getUsuario().getId());
 		return dto;
 	}
+
+	@Override
+	public Page<TareaResponseDTO> listarTodas(Pageable pageable) {
+		return tareaRepository.findAll(pageable)
+				.map(this::mapToDTO);
+	}
 	
 }
