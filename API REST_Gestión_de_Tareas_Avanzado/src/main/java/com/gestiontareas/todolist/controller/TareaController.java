@@ -31,7 +31,7 @@ import lombok.RequiredArgsConstructor;
  * llama al service
  * devuelve respuesta*/
 
-
+// Clase de controlador REST que maneja las solicitudes relacionadas con las tareas
 @RestController	// Indica que esta clase es un controlador REST de Spring
 @RequestMapping("/api/tareas")	// Define la ruta base para las solicitudes de este controlador
 @RequiredArgsConstructor	// Genera un constructor con los campos finales
