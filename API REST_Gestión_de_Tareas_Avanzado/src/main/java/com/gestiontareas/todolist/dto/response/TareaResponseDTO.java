@@ -5,8 +5,8 @@ import com.gestiontareas.todolist.model.EstadoTarea;
 import lombok.Data;
 import com.gestiontareas.todolist.model.EstadoTarea;
 
-//Representa lo que sale por GET al cliente
-@Data // Clase DTO para las respuestas de las tareas
+@Data  // Anotación de Lombok para generar getters, setters, toString, equals y hashCode automáticamente
+// Clase DTO para representar la respuesta de una tarea, con información sobre su id, título, descripción, estado, fecha de creación y el id del usuario al que pertenece
 public class TareaResponseDTO {
 	
 	private Long id;
