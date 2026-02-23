@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice	// Indica que esta clase maneja excepciones de manera global para los controladores REST
+// Clase para manejar excepciones de manera global en la aplicación, proporcionando respuestas de error consistentes y detalladas para diferentes tipos de excepciones
 public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(ResourceNotFoundException.class)	// Indica que este método maneja excepciones del tipo ResourceNotFoundException
