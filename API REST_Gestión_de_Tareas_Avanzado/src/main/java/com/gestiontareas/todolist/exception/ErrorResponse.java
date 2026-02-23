@@ -6,9 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // Lombok annotation to generate getters, setters, and other utility methods
-@AllArgsConstructor // Lombok annotation to generate a constructor with all fields
-@NoArgsConstructor // Lombok annotation to generate a no-argument constructor
+@Data	// Anotación de Lombok para generar getters, setters, toString, equals y hashCode automáticamente
+@AllArgsConstructor // Anotación de Lombok para generar un constructor con todos los campos como parámetros
+@NoArgsConstructor 	// Anotación de Lombok para generar un constructor sin parámetros
+// Clase para representar la estructura de una respuesta de error, con información sobre la fecha y hora del error, el código de estado HTTP, el mensaje de error, la descripción del error y la ruta de la solicitud que causó el error
 public class ErrorResponse { 
 	
 	private LocalDateTime timestamp;
