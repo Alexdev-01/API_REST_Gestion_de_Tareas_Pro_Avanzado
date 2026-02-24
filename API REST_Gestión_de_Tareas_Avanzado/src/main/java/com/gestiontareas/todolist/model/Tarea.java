@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity	// Indica que esta clase es una entidad JPA que se mapeará a una tabla en la base de datos
-@Table(name = "tareas")
+@Table(name = "tareas")	// Especifica el nombre de la tabla en la base de datos que se utilizará para esta entidad
 @Getter
 @Setter
 @NoArgsConstructor
