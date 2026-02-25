@@ -97,8 +97,8 @@ Arquitectura en capas (Layered Architecture). Separación clara de responsabilid
 |------------|----------|-------------|
 | `POST` | `/api/tareas` | Crear tarea |
 | `GET` | `/api/tareas/usuario/{usuarioId}` | Listar tareas por usuario (paginado) |
-| `PUT` | `/api/tareas/{id}` | /api/tareas/{id} |
-| `DELETE` | `/api/tareas/{id}` | Actualizar tarea |
+| `PUT` | `/api/tareas/{id}` | Actualizar tarea |
+| `DELETE` | `/api/tareas/{id}` | Eliminar tarea |
 | `PATCH` | `/api/tareas/{id}/estado` | Cambiar estado |
 
 
