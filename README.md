@@ -168,17 +168,18 @@ Permite probar la API directamente desde el navegador.
 
 ---
 
-⚙️ Configuración del Proyecto
-Crear la base de datos
+## ⚙️ Configuración del Proyecto
+
+**Crear la base de datos**
 
 `CREATE DATABASE gestion_tareas;`
 
-Ejecutar la aplicación
+**Ejecutar la aplicación**
 
 `mvn spring-boot:run`
 
 
-La API estará disponible en:
+**La API estará disponible en:**
 
 `http://localhost:8080`
 
