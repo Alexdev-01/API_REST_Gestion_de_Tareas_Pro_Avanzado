@@ -112,26 +112,27 @@ Arquitectura en capas (Layered Architecture). Separación clara de responsabilid
 
 ---
 
-## 🧠 Contrato de la API (DTOs)
+## 🧠 Contrato de API (DTOs)
 
 La API no expone directamente las entidades JPA.  
 Utiliza **DTOs** para garantizar un contrato estable y seguro.
 
-### TareaRequestDTO
+### 📥 TareaRequestDTO
 ```json
 {
   "titulo": "Completar documentación",
-  "descripcion": "Escribir README",
+  "descripcion": "Actualizar README",
+  "estado": "PENDIENTE",
   "usuarioId": 1
 }
 
 ```
-### TareaResponseDTO
+### 📤 TareaResponseDTO
 ```json
 {
   "id": 1,
   "titulo": "Completar documentación",
-  "descripcion": "Escribir README",
+  "descripcion": "Actualizar README",
   "estado": "PENDIENTE",
   "fechaCreacion": "2026-02-04T14:30:00",
   "usuarioId": 1
@@ -139,9 +140,35 @@ Utiliza **DTOs** para garantizar un contrato estable y seguro.
 ```
 ---
 
+## ⚠️ Manejo Global de Errores
+La API devuelve respuestas JSON uniformes:
+
+```
+{
+  "timestamp": "2026-02-20T12:00:00",
+  "status": 404,
+  "error": "NOT_FOUND",
+  "message": "Usuario no encontrado",
+  "path": "/api/usuarios/99"
+}
+
+```
+Centralizado mediante @ControllerAdvice.
+
+---
+
+## 📖 Documentación Swagger
+Disponible en:
+```
+http://localhost:8080/swagger-ui/index.html
+```
+Permite probar la API directamente desde el navegador.
+
+---
+
 ## 🛠️ Requisitos Previos
 
-Java JDK
+- Java JDK
 - MySQL
 - Maven (opcional si se usa el wrapper)
 - IDE recomendado: IntelliJ IDEA, Eclipse o Spring Tools
@@ -160,11 +187,18 @@ Ejecutar la aplicación
 
 
 La API estará disponible en:
-http://localhost:8080
+
+`http://localhost:8080`
 
 ---
 
 ## 📊 Modelo de Datos
+### **Entidad Usuario**
+
+- id
+- nombre
+- email
+
 ### **Entidad Tarea**
 
 - id
@@ -172,12 +206,7 @@ http://localhost:8080
 - descripcion
 - estado
 - fechaCreacion
-- usuario
-
-### **Entidad Usuario**
-- id
-- nombre
-- email
+- usuario (relación ManyToOne)
 
 ---
 
