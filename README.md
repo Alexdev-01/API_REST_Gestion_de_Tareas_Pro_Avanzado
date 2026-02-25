@@ -45,27 +45,19 @@ Proyecto orientado a portfolio backend profesional, buenas prácticas empresaria
 
 👤 Gestión de Usuarios
 
-Crear usuario
-
-Listar usuarios
-
-Obtener usuario por ID
+- Crear usuario
+- Listar usuarios
+- Obtener usuario por ID
 
 📋 Gestión de Tareas
 
-Crear tareas asociadas a un usuario
-
-Listar tareas por usuario
-
-Actualizar tareas
-
-Eliminar tareas
-
-Cambiar estado (PENDIENTE, EN_PROGRESO, COMPLETADA)
-
-Paginación de resultados
-
-Filtros dinámicos
+- Crear tareas asociadas a un usuario
+- Listar tareas por usuario
+- Actualizar tareas
+- Eliminar tareas
+- Cambiar estado (PENDIENTE, EN_PROGRESO, COMPLETADA)
+- Paginación de resultados
+- Filtros dinámicos
 
 ---
 
