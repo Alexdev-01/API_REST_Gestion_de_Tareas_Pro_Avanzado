@@ -1,5 +1,5 @@
 
-# 📋 📋 API REST - Gestión de Tareas (Profesional Avanzado)
+# 📋 API REST - Gestión de Tareas (Profesional Avanzado)
 
 API RESTful desarrollada con Spring Boot para la gestión de tareas (To-Do List), diseñada bajo una arquitectura profesional en capas y preparada para entornos reales.
 
